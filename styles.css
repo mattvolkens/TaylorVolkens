@@ -816,25 +816,25 @@ footer {
     }
 }
 .final-photo-cta {
-    padding-top: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .final-photo-wrap {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
-    max-width: 900px;
+    max-width: 560px;
     margin: 0 auto;
-    min-height: 360px;
+    height: 220px;
     box-shadow: 0 20px 40px rgba(47,42,38,0.08);
 }
 
 .final-photo-img {
     width: 100%;
     height: 100%;
-    min-height: 360px;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 20%;
     display: block;
 }
 
@@ -845,24 +845,30 @@ footer {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(47,42,38,0.4), rgba(47,42,38,0.08) 45%, rgba(47,42,38,0));
+    padding: 1.25rem;
+    background: linear-gradient(to top, rgba(47,42,38,0.32), rgba(47,42,38,0.06) 45%, rgba(47,42,38,0));
     color: white;
 }
 
 .final-photo-overlay h2 {
     color: white;
-    margin-bottom: 1rem;
-    max-width: 500px;
+    margin-bottom: 0.75rem;
+    max-width: 360px;
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
 }
 
 @media (max-width: 900px) {
-    .final-photo-wrap,
-    .final-photo-img {
-        min-height: 280px;
+    .final-photo-cta {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+    }
+
+    .final-photo-wrap {
+        max-width: 100%;
+        height: 220px;
     }
 
     .final-photo-overlay {
-        padding: 1.25rem;
+        padding: 1.1rem;
     }
 }
