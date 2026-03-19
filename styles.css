@@ -690,16 +690,6 @@ p { font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-secondary); }
     color: var(--text-color);
 }
 
-/* Footer & CTA */
-.cta-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.cta-btn {
-    margin-top: 2rem;
-}
-
 footer {
     padding: 2rem 5%;
     display: flex;
