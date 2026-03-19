@@ -835,22 +835,46 @@ section#contact.cta.section {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: center;
+}
+
+/* Left Column - Text Content */
+.cta-text-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     text-align: left;
 }
 
-/* Photo Column - Left Side */
+.cta-text-column h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.cta-text-column p {
+    text-align: left;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.cta-btn {
+    margin-top: 0;
+}
+
+/* Right Column - Photo */
 .inline-photo-card {
     width: 100%;
-    max-width: 280px;
+    max-width: 350px;
     height: auto;
-    aspect-ratio: 1;
+    aspect-ratio: 3 / 4;
     border-radius: 16px;
     overflow: hidden;
     line-height: 0;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin-left: auto;
 }
 
 .inline-photo-card:hover {
@@ -865,39 +889,16 @@ section#contact.cta.section {
     display: block;
 }
 
-/* Text Column - Right Side */
-.cta-text-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.cta-text-column h2 {
-    text-align: left;
-    margin-bottom: 0;
-}
-
-.cta-text-column p {
-    text-align: left;
-    margin-bottom: 0;
-}
-
-.cta-btn {
-    margin-top: 1rem;
-    align-self: flex-start;
-}
-
 /* Responsive - Stack on Mobile */
 @media (max-width: 900px) {
     .cta-content {
         grid-template-columns: 1fr;
         gap: 3rem;
-        text-align: center;
     }
     
-    .inline-photo-card {
-        max-width: 200px;
-        margin: 0 auto;
+    .cta-text-column {
+        align-items: center;
+        text-align: center;
     }
     
     .cta-text-column h2,
@@ -905,8 +906,9 @@ section#contact.cta.section {
         text-align: center;
     }
     
-    .cta-btn {
-        align-self: center;
+    .inline-photo-card {
+        max-width: 250px;
+        margin: 0 auto;
     }
 }
 
@@ -916,6 +918,6 @@ section#contact.cta.section {
     }
     
     .inline-photo-card {
-        max-width: 160px;
+        max-width: 200px;
     }
 }
