@@ -823,47 +823,30 @@ section#contact.cta.section {
     padding-bottom: 2.5rem;
 }
 
-section.final-photo-cta.section {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-section.final-photo-cta .final-photo-wrap {
-    position: relative;
+.inline-photo-card {
+    width: 100%;
+    max-width: 260px;
+    margin: 2rem auto 0;
+    border-radius: 16px;
     overflow: hidden;
-    border-radius: 18px;
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
-    height: 180px;
-    box-shadow: 0 12px 24px rgba(47,42,38,0.08);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.18);
 }
 
-section.final-photo-cta .final-photo-img {
+.inline-photo-img {
     width: 100%;
-    height: 100%;
+    height: 180px;
     object-fit: cover;
     object-position: center 18%;
     display: block;
 }
 
-section.final-photo-cta .final-photo-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 0.9rem;
-    background: linear-gradient(to top, rgba(47,42,38,0.28), rgba(47,42,38,0.04) 55%, rgba(47,42,38,0));
-    color: white;
-}
+@media (max-width: 900px) {
+    .inline-photo-card {
+        max-width: 220px;
+        margin-top: 1.5rem;
+    }
 
-section.final-photo-cta .final-photo-overlay h2 {
-    color: white;
-    margin-bottom: 0.4rem;
-    max-width: 220px;
-    font-size: 1.15rem;
-    line
+    .inline-photo-img {
+        height: 150px;
+    }
+}
