@@ -106,6 +106,10 @@ p { font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-secondary); }
     max-width: 1400px;
     margin: 0 auto;
 }
+.cta.section {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
 
 .bg-light {
     background-color: var(--accent-light);
@@ -686,7 +690,16 @@ p { font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-secondary); }
     color: var(--text-color);
 }
 
-/* Footer */
+/* Footer & CTA */
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-btn {
+    margin-top: 2rem;
+}
+
 footer {
     padding: 2rem 5%;
     display: flex;
@@ -700,73 +713,6 @@ footer {
     margin-left: 2rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-}
-
-/* Contact CTA Section - Two Column Layout */
-section#contact.cta.section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
-
-section#contact .cta-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-}
-
-/* Left Column - Text Content */
-section#contact .cta-text-column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-}
-
-section#contact .cta-text-column h2 {
-    text-align: left;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-    color: #fff;
-}
-
-section#contact .cta-text-column p {
-    text-align: left;
-    margin-bottom: 2rem;
-    max-width: 500px;
-    color: #aaaaaa;
-}
-
-section#contact .cta-btn {
-    margin-top: 0;
-}
-
-/* Right Column - Photo */
-section#contact .inline-photo-card {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    border-radius: 16px;
-    overflow: hidden;
-    line-height: 0;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    margin-left: auto;
-}
-
-section#contact .inline-photo-card:hover {
-    transform: translateY(-6px);
-}
-
-section#contact .inline-photo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 25%;
-    display: block;
 }
 
 /* Animations & Motion */
@@ -811,6 +757,7 @@ section#contact .inline-photo-img {
 }
 
 /* Responsive */
+/* Responsive */
 @media (max-width: 900px) {
     .hero-grid, .about-grid, .strategy-container, .blog-grid, .editorial-grid {
         grid-template-columns: 1fr;
@@ -845,27 +792,6 @@ section#contact .inline-photo-img {
     h1 {
         overflow: visible;
     }
-    
-    /* CTA Responsive */
-    section#contact .cta-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    section#contact .cta-text-column {
-        align-items: center;
-        text-align: center;
-    }
-    
-    section#contact .cta-text-column h2,
-    section#contact .cta-text-column p {
-        text-align: center;
-    }
-    
-    section#contact .inline-photo-card {
-        max-width: 250px;
-        margin: 0 auto;
-    }
 }
 
 @keyframes initialStretchMobile {
@@ -883,6 +809,8 @@ section#contact .inline-photo-img {
     }
 }
 
+/* Replace the bottom section of your CSS (from the @keyframes breathingDriftMobile onwards) with this: */
+
 @keyframes breathingDriftMobile {
     0% {
         letter-spacing: 0.025em;
@@ -894,12 +822,100 @@ section#contact .inline-photo-img {
     }
 }
 
+/* CSS FOR TWO-COLUMN CTA WITH PHOTO */
+
+/* Contact CTA Section - Two Column Layout */
+section#contact.cta.section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.cta-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    text-align: left;
+}
+
+/* Photo Column - Left Side */
+.inline-photo-card {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    line-height: 0;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.inline-photo-card:hover {
+    transform: translateY(-6px);
+}
+
+.inline-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+}
+
+/* Text Column - Right Side */
+.cta-text-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cta-text-column h2 {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.cta-text-column p {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.cta-btn {
+    margin-top: 1rem;
+    align-self: flex-start;
+}
+
+/* Responsive - Stack on Mobile */
+@media (max-width: 900px) {
+    .cta-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .inline-photo-card {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    
+    .cta-text-column h2,
+    .cta-text-column p {
+        text-align: center;
+    }
+    
+    .cta-btn {
+        align-self: center;
+    }
+}
+
 @media (max-width: 480px) {
-    section#contact .cta-content {
+    .cta-content {
         gap: 2rem;
     }
     
-    section#contact .inline-photo-card {
-        max-width: 200px;
+    .inline-photo-card {
+        max-width: 160px;
     }
 }
