@@ -753,6 +753,7 @@ footer {
 }
 
 /* Responsive */
+/* Responsive */
 @media (max-width: 900px) {
     .hero-grid, .about-grid, .strategy-container, .blog-grid, .editorial-grid {
         grid-template-columns: 1fr;
@@ -778,11 +779,9 @@ footer {
     .animate-scroll {
         display: inline-block;
         white-space: nowrap;
-        transform-origin: center center;
-        will-change: transform, letter-spacing, color;
         animation:
-            initialStretchMobile 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards,
-            breathingDriftMobile 4.5s ease-in-out 2.9s infinite alternate;
+            initialStretchMobile 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards,
+            breathingDriftMobile 4.2s ease-in-out 2.7s infinite alternate;
     }
 
     .hero-content,
@@ -794,30 +793,25 @@ footer {
 @keyframes initialStretchMobile {
     0% {
         letter-spacing: -0.01em;
-        transform: scaleX(1);
         color: var(--text-color);
     }
     50% {
-        letter-spacing: 0.04em;
-        transform: scaleX(1.14);
+        letter-spacing: 0.05em;
         color: #E28876;
     }
     100% {
-        letter-spacing: 0.02em;
-        transform: scaleX(1.08);
+        letter-spacing: 0.025em;
         color: #D97A62;
     }
 }
 
 @keyframes breathingDriftMobile {
     0% {
-        letter-spacing: 0.02em;
-        transform: scaleX(1.08);
+        letter-spacing: 0.025em;
         color: #D97A62;
     }
     100% {
-        letter-spacing: 0.03em;
-        transform: scaleX(1.11);
+        letter-spacing: 0.04em;
         color: #C26852;
     }
 }
