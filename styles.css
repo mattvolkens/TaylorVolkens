@@ -778,6 +778,8 @@ footer {
     .animate-scroll {
         display: inline-block;
         white-space: nowrap;
+        transform-origin: center center;
+        will-change: transform, letter-spacing, color;
         animation:
             initialStretchMobile 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards,
             breathingDriftMobile 4.5s ease-in-out 2.9s infinite alternate;
@@ -792,25 +794,30 @@ footer {
 @keyframes initialStretchMobile {
     0% {
         letter-spacing: -0.01em;
+        transform: scaleX(1);
         color: var(--text-color);
     }
     50% {
-        letter-spacing: 0.08em;
+        letter-spacing: 0.04em;
+        transform: scaleX(1.14);
         color: #E28876;
     }
     100% {
-        letter-spacing: 0.03em;
+        letter-spacing: 0.02em;
+        transform: scaleX(1.08);
         color: #D97A62;
     }
 }
 
 @keyframes breathingDriftMobile {
     0% {
-        letter-spacing: 0.03em;
+        letter-spacing: 0.02em;
+        transform: scaleX(1.08);
         color: #D97A62;
     }
     100% {
-        letter-spacing: 0.05em;
+        letter-spacing: 0.03em;
+        transform: scaleX(1.11);
         color: #C26852;
     }
 }
