@@ -824,29 +824,29 @@ section#contact.cta.section {
 }
 
 .inline-photo-card {
-    width: 100%;
-    max-width: 260px;
-    margin: 2rem auto 0;
-    border-radius: 16px;
+    width: 120px;
+    margin: 1.25rem auto 0;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+    line-height: 0;
 }
 
 .inline-photo-img {
     width: 100%;
-    height: 180px;
+    height: 120px;
     object-fit: cover;
-    object-position: center 18%;
+    object-position: center 20%;
     display: block;
+    border-radius: 14px;
 }
 
 @media (max-width: 900px) {
     .inline-photo-card {
-        max-width: 220px;
-        margin-top: 1.5rem;
+        width: 96px;
+        margin-top: 1rem;
     }
 
     .inline-photo-img {
-        height: 150px;
+        height: 96px;
     }
 }
