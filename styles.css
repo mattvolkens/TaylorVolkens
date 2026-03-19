@@ -822,26 +822,39 @@ footer {
     }
 }
 
-/* Contact CTA Section */
+/* CSS FOR TWO-COLUMN CTA WITH PHOTO */
+
+/* Contact CTA Section - Two Column Layout */
 section#contact.cta.section {
     padding-top: 4rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 4rem;
 }
 
-/* Inline Photo Card at Bottom of CTA */
+.cta-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    text-align: left;
+}
+
+/* Photo Column - Left Side */
 .inline-photo-card {
-    width: 180px;
-    height: 180px;
-    margin: 2.5rem auto 0;
-    border-radius: 50%;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 16px;
     overflow: hidden;
     line-height: 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .inline-photo-card:hover {
-    transform: translateY(-4px) scale(1.03);
+    transform: translateY(-6px);
 }
 
 .inline-photo-img {
@@ -852,18 +865,57 @@ section#contact.cta.section {
     display: block;
 }
 
+/* Text Column - Right Side */
+.cta-text-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cta-text-column h2 {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.cta-text-column p {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.cta-btn {
+    margin-top: 1rem;
+    align-self: flex-start;
+}
+
+/* Responsive - Stack on Mobile */
 @media (max-width: 900px) {
+    .cta-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
     .inline-photo-card {
-        width: 140px;
-        height: 140px;
-        margin-top: 2rem;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    
+    .cta-text-column h2,
+    .cta-text-column p {
+        text-align: center;
+    }
+    
+    .cta-btn {
+        align-self: center;
     }
 }
 
 @media (max-width: 480px) {
+    .cta-content {
+        gap: 2rem;
+    }
+    
     .inline-photo-card {
-        width: 120px;
-        height: 120px;
-        margin-top: 1.5rem;
+        max-width: 160px;
     }
 }
