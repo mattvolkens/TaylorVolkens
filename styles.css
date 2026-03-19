@@ -822,7 +822,27 @@ footer {
     }
 }
 
-/* CSS FOR TWO-COLUMN CTA WITH PHOTO */
+/* FIND THIS SECTION IN YOUR CSS (around line 735): */
+/* Footer & CTA */
+
+/* DELETE the old .cta-content rule that says "max-width: 800px" */
+/* REPLACE the entire "Footer & CTA" section through the end of your file with this: */
+
+/* Footer & CTA */
+footer {
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+
+.footer-links a {
+    margin-left: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
 
 /* Contact CTA Section - Two Column Layout */
 section#contact.cta.section {
@@ -830,7 +850,7 @@ section#contact.cta.section {
     padding-bottom: 4rem;
 }
 
-.cta-content {
+section#contact .cta-content {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
@@ -840,31 +860,33 @@ section#contact.cta.section {
 }
 
 /* Left Column - Text Content */
-.cta-text-column {
+section#contact .cta-text-column {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
 }
 
-.cta-text-column h2 {
+section#contact .cta-text-column h2 {
     text-align: left;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    color: #fff;
 }
 
-.cta-text-column p {
+section#contact .cta-text-column p {
     text-align: left;
     margin-bottom: 2rem;
     max-width: 500px;
+    color: #aaaaaa;
 }
 
-.cta-btn {
+section#contact .cta-btn {
     margin-top: 0;
 }
 
 /* Right Column - Photo */
-.inline-photo-card {
+section#contact .inline-photo-card {
     width: 100%;
     max-width: 350px;
     height: auto;
@@ -877,11 +899,11 @@ section#contact.cta.section {
     margin-left: auto;
 }
 
-.inline-photo-card:hover {
+section#contact .inline-photo-card:hover {
     transform: translateY(-6px);
 }
 
-.inline-photo-img {
+section#contact .inline-photo-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -889,35 +911,137 @@ section#contact.cta.section {
     display: block;
 }
 
-/* Responsive - Stack on Mobile */
+/* Animations & Motion */
+.reveal {
+    opacity: 0;
+    visibility: hidden;
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fade-up { transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-up.active { transform: translateY(0); }
+
+.fade-down { transform: translateY(-30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-down.active { transform: translateY(0); }
+
+.scale-up { transform: scale(0.95); transition: opacity 0.8s ease, transform 0.8s ease; }
+.scale-up.active { transform: scale(1); }
+
+/* Stagger Children */
+.stagger.active > * {
+    animation: fadeUpItem 0.8s ease forwards;
+    opacity: 0;
+}
+
+.stagger.active > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger.active > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger.active > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger.active > *:nth-child(4) { animation-delay: 0.4s; }
+
+.d-1 { transition-delay: 0.1s; }
+.d-2 { transition-delay: 0.2s; }
+.d-3 { transition-delay: 0.3s; }
+
+@keyframes fadeUpItem {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
 @media (max-width: 900px) {
-    .cta-content {
+    .hero-grid, .about-grid, .strategy-container, .blog-grid, .editorial-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-media {
+        justify-content: center;
+        margin-top: 3rem;
+    }
+    
+    .about-image {
+        padding-top: 2rem;
+    }
+    
+    .voice-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+
+    .animate-scroll {
+        display: inline-block;
+        white-space: nowrap;
+        animation:
+            initialStretchMobile 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards,
+            breathingDriftMobile 4.2s ease-in-out 2.7s infinite alternate;
+    }
+
+    .hero-content,
+    h1 {
+        overflow: visible;
+    }
+    
+    /* CTA Responsive */
+    section#contact .cta-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
     
-    .cta-text-column {
+    section#contact .cta-text-column {
         align-items: center;
         text-align: center;
     }
     
-    .cta-text-column h2,
-    .cta-text-column p {
+    section#contact .cta-text-column h2,
+    section#contact .cta-text-column p {
         text-align: center;
     }
     
-    .inline-photo-card {
+    section#contact .inline-photo-card {
         max-width: 250px;
         margin: 0 auto;
     }
 }
 
+@keyframes initialStretchMobile {
+    0% {
+        letter-spacing: -0.01em;
+        color: var(--text-color);
+    }
+    50% {
+        letter-spacing: 0.05em;
+        color: #E28876;
+    }
+    100% {
+        letter-spacing: 0.025em;
+        color: #D97A62;
+    }
+}
+
+@keyframes breathingDriftMobile {
+    0% {
+        letter-spacing: 0.025em;
+        color: #D97A62;
+    }
+    100% {
+        letter-spacing: 0.04em;
+        color: #C26852;
+    }
+}
+
 @media (max-width: 480px) {
-    .cta-content {
+    section#contact .cta-content {
         gap: 2rem;
     }
     
-    .inline-photo-card {
+    section#contact .inline-photo-card {
         max-width: 200px;
     }
 }
