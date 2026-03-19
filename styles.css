@@ -772,6 +772,45 @@ footer {
     }
     
     .nav-links {
-        display: none; /* In a real app we'd add a mobile menu */
+        display: none;
+    }
+
+    .animate-scroll {
+        display: inline-block;
+        white-space: nowrap;
+        animation:
+            initialStretchMobile 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards,
+            breathingDriftMobile 4.5s ease-in-out 2.9s infinite alternate;
+    }
+
+    .hero-content,
+    h1 {
+        overflow: visible;
+    }
+}
+
+@keyframes initialStretchMobile {
+    0% {
+        letter-spacing: -0.01em;
+        color: var(--text-color);
+    }
+    50% {
+        letter-spacing: 0.08em;
+        color: #E28876;
+    }
+    100% {
+        letter-spacing: 0.03em;
+        color: #D97A62;
+    }
+}
+
+@keyframes breathingDriftMobile {
+    0% {
+        letter-spacing: 0.03em;
+        color: #D97A62;
+    }
+    100% {
+        letter-spacing: 0.05em;
+        color: #C26852;
     }
 }
